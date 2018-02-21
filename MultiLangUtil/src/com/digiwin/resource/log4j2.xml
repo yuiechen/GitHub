@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- Console 為 console 顯示 log 格式的設定 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</Console>
+
+		<!-- DailyFile 為以日為單位儲存的 log 檔設定 -->
+		<RollingFile name="wechat" fileName="./logs/MultiLangUtil/MultiLangUtil.log"
+			filePattern="./logs/wechat/wechat-log-%d{yyyy-MM-dd}-%i.log">
+			<!-- filePattern="${sys:catalina.home}/logs/wechat/wechat-log-%d{yyyy-MM-dd}-%i.log" -->
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss} [%t] %c{1} - %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="512 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<logger name="org.springframework" level="INFO">
+		</logger>
+		<logger name="org.hibernate" level="INFO">
+		</logger>
+		<!-- additivity="false" true為AppenderRef 會疊加 -->
+		<logger name="com.digiwin" level="DEBUG" additivity="false">
+			<AppenderRef ref="wechat" />
+			<AppenderRef ref="Console" />
+		</logger>
+		<Root level="Debug">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="wechat" />
+		</Root>
+	</Loggers>
+</Configuration>

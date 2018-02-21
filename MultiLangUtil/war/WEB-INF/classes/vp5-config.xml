@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="no" default-dependency-check="none"
+	default-lazy-init="false">
+
+	<bean abstract="false" autowire="default"
+		class="com.digiwin.v6.config.ConfigParameterSingleton"
+		dependency-check="default" id="vp5Config" lazy-init="default"
+		singleton="true">
+		<property name="licFileLocation" value="c:/" />
+		<property name="licFileName" value="v-pointj.lic" />
+		<property name="dfDsName" value="infoview" />
+		<property name="version" value="5.4.02" />
+	</bean>
+</beans>

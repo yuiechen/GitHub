@@ -1,0 +1,25 @@
+td, th {
+	border: 1px solid #cbcbcb;
+	padding: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+th, .col_th {
+	background: linear-gradient(#398bd0, #0b64a0, #0b64a0);
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#diagonal {
+	background: transparent;
+	border: 0px solid transparent;
+}
+
+.BodyHeader, .HeaderBody {
+	background: linear-gradient(#398bd0, #0b64a0, #0b64a0);
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
